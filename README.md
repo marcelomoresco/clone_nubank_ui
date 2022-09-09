@@ -4,7 +4,7 @@
 
 <br>
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/85464545/189431715-c6cd0365-cc99-44d4-a4f7-788dbb645e68.gif)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/85464545/189432009-dccbc576-eabc-45da-a9fe-cb0b1694ccf8.gif)
 
 
 ### Autor
