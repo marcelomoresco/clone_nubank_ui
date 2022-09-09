@@ -16,8 +16,8 @@ class head_nubank extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height: 50,
-              width: 50,
+              height: 70,
+              width: 60,
               decoration: BoxDecoration(
                 color: Color(0xFF9720D7),
                 borderRadius: BorderRadius.circular(40),

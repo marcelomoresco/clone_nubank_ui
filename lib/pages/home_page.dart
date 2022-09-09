@@ -1,7 +1,11 @@
-import 'package:clone_nubank/widgets/item_funcionality.dart';
+import 'package:clone_nubank/widgets/credit_card_container.dart';
 import 'package:flutter/material.dart';
-
+import '../widgets/card_container.dart';
 import '../widgets/head_nubank.dart';
+import '../widgets/investment_container.dart';
+import '../widgets/list_icons_nubank.dart';
+import '../widgets/loan_container.dart';
+import '../widgets/security_life_container.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,18 +25,18 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 // HEADER NUBANK ***************
-                head_nubank(),
+                const head_nubank(),
 
                 // WELCOME USER
 
                 Container(
                   height: 90,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFF8400D3),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(30.0),
                     child: Text(
                       "Olá, Marcelo",
                       style: TextStyle(
@@ -49,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(30.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Text("Conta",
                           style: TextStyle(
                               color: Colors.black,
@@ -67,59 +71,118 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "R\$ 1.901.287,98",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 25),
+                            fontSize: 20),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 15,
+                const SizedBox(
+                  height: 30,
                 ),
-                _actions(),
-                SizedBox(
+                list_icons_nubank(),
+                const SizedBox(
                   height: 50,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Container(
-                        height: 60,
-                        width: 370,
-                        decoration: BoxDecoration(
-                            color: Colors.grey[100],
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Icon(Icons.business_center_sharp),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text("Meus Cartões",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700)),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
+                const card_container(),
+                const SizedBox(
                   height: 10,
                 ),
-                Divider(
-                  thickness: 2,
+                const Divider(
+                  thickness: 1.5,
+                ),
+                const credit_card_container(),
+                const Divider(
+                  thickness: 1.5,
+                ),
+                const loan_container(),
+                const Divider(
+                  thickness: 1.5,
+                ),
+                const investment_container(),
+                const Divider(
+                  thickness: 1.5,
+                ),
+                const security_life_container(),
+                const Divider(
+                  thickness: 1.5,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Container(
+                    height: 300,
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Descubra Mais",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 35,
+                        ),
+                        Container(
+                          height: 200,
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[200],
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                          color: Colors.white, width: 1.2)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(18.0),
+                                    child: Column(
+                                      children: [
+                                        item_show_more(),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.only(left: 30),
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey[200],
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                          color: Colors.white, width: 1.2)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(18.0),
+                                    child: Column(
+                                      children: [
+                                        item_show_more(),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 )
               ],
             ),
@@ -130,59 +193,69 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-_actions() {
-  return Container(
-      padding: EdgeInsets.only(left: 20),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: [
-            _actionsItem(
-              icon: Icons.pix,
-              name: "Pix",
-            ),
-            _actionsItem(
-              icon: Icons.shopping_cart,
-              name: "Pagar",
-            ),
-            _actionsItem(
-              icon: Icons.account_balance_rounded,
-              name: "Depositar",
-            ),
-            _actionsItem(
-              icon: Icons.accessibility_new_outlined,
-              name: "Transferir",
-            ),
-            _actionsItem(
-              icon: Icons.pix,
-              name: "Pix",
+class item_show_more extends StatelessWidget {
+  const item_show_more({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: const [
+            Text(
+              "Convidar amigos",
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 19,
+              ),
             ),
           ],
         ),
-      ));
-}
-
-_actionsItem({required IconData icon, required String name}) {
-  return Container(
-    margin: const EdgeInsets.symmetric(horizontal: 10),
-    child: Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(bottom: 10),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40), color: Colors.grey[100]),
-          child: Column(
-            children: [
-              Icon(icon, color: Colors.black),
-            ],
-          ),
+        const SizedBox(
+          height: 25,
         ),
-        Text(
-          name,
-          style: TextStyle(fontWeight: FontWeight.bold),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: const [
+            Text(
+              "Tire seus amigos da fila do banco\n e tire eles da burocracia",
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 25,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: 40,
+              width: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  "Convidar",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF8400D3),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40))),
+              ),
+            ),
+          ],
         )
       ],
-    ),
-  );
+    );
+  }
 }
